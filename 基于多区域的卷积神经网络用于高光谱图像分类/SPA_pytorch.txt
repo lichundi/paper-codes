@@ -1,0 +1,52 @@
+'''
+@Author: your name
+@Date: 2020-07-09 10:04:16
+@LastEditTime: 2020-07-09 10:40:23
+@LastEditors: Please set LastEditors
+@Description: In User Settings Edit
+@FilePath: \undefinedc:\Users\李春娣\Desktop\学校\实验室\论文\论文学习\2020.6.24-7.7\DR-CNN\SPA_pytorch.txt
+'''
+import os
+import numpy as np
+import scipy.io as sio
+import h5py
+import time
+import sys
+from data_util import *
+
+
+if not os.path.exists('log/'):  
+    os.makedirs('log/')  
+
+model_name = os.path.join(weights_path+args.train_KEY+'.h5')
+
+class GW_net(nn.Module):
+    def __init__(self):
+        super(GW_net, self).__init__()
+         # conv1
+        self.Convolution1 = nn.Conv2d(3, 16, 3, stride=1, padding=1)
+        self.BatchNorm1 = nn.BatchNorm2d(16)
+        self.ReLu1 = nn.ReLu(inplace=True)
+
+        # conv2
+        self.Convolution2 = nn.Conv2d(16, 16, 3, stride=1, padding=1)
+        self.BatchNorm2 = nn.BatchNorm2d(16)
+        self.ReLu2 = nn.ReLu(inplace=True)
+
+        # conv3
+        self.Convolution3 = nn.Conv2d(16, 16, 3, stride=1, padding=1)
+        self.BatchNorm3 = nn.BatchNorm2d(16)
+
+        # conv4
+        self.Convolution4 = nn.Conv2d(16, 16, 3, stride=1, padding=1)
+        self.BatchNorm4 = BatchNorm2d(16)
+        self.ReLu4 = nn.ReLu(inplace=True)
+
+        # conv5
+        self.Convolution5 = nn.Conv2d(16, 16, 3, stride=1, padding=1)
+        self.BatchNorm5 = BatchNorm2d(16)
+    def forward(self, inputs):
+        x = inputs
+        x = self.ReLu1(self.BatchNorm1(self.Convolution1(x)))
+        x = self.ReLu2(self.BatchNorm2(self.Convolution2(x)))
+        x = self.
