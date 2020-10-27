@@ -20,6 +20,7 @@
 - 它使得模型可以关注不同位置。虽然在上面的例子中，z1 包含了一点其他位置的编码，但当前位置的单词还是占主要作用， 当我们想知道“The animal didn’t cross the street because it was too tired” 中 it 的含义时，这时就需要关注到其他位置。这个机制为注意层提供了多个“表示子空间”（representation Subspaces）。下面我们将具体介绍：
 - (1)经过 Multi-Headed，我们会得到和 heads 数目一样多的 Query / Key / Value 权重矩阵组.论文中用了8个，那么每个Encoder/Decoder我们都会得到 8 个集合。这些集合都是随机初始化的，经过训练之后，每个集合会将input Embeddings （或者来自较低编码器/解码器的向量）投影到不同的表示子空间中。
 - (2)我们重读记忆八次相似的操作，得到八个Zi矩阵。简单来说，就是定义8组权重矩阵，每个单词会做8次上面的Self-Attention的计算这样每个单词就会得到8个不同的加权求和Z。
+- (3)feed-forward处只能接受一个矩阵，所以需要将这八个矩阵压缩成一个矩阵。方法就是先将八个矩阵连接起来，然后乘以一个额外的权重矩阵W0。为了使得输出与输入结构对标 乘以一个线性W0 得到最终的Z
 ###  3.2.2 Transformer中的Attention ###
 - 在Transformer中以3种方式使用Multi-Head Attention
 - 1、在“Encoder-Decoder Attention”层，query来自上面的解码器层，key和value来自编码器的输出。这允许解码器中的每个位置能关注到输入序列中的所有位置。这模仿Seq2Seq模型中典型的Encoder-Decoder的attention机制
