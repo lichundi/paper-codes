@@ -26,3 +26,4 @@
 ## 3.3 Position-wise Feed-Forward Networks ##
 ## 3.4 嵌入和Softmax ## 
 - 与其他序列转导模型类似，我们使用学习到的嵌入将输入词符和输出词符转换为维度为\large d_{model}的向量。我们还使用普通的线性变换和softmax函数将解码器输出转换为预测的下一个词符的概率。在我们的模型中，两个嵌入层之间和pre-softmax线性变换共享相同的权重矩阵。在嵌入层中，我们将这些权重乘以\large \sqrt{d_{model}}
+
