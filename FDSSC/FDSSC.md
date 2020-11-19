@@ -26,4 +26,9 @@
 - 采用dropout层防止过拟合
 ### 2.4 Fast Dense Spectral–Spatial Convolution Framework ###
 #### 2.4.1 目标函数 ####
-- （9）FDSSC框架的预测值,liy
+- （9）FDSSC框架的预测值,利用交叉熵损失函数，δ是要优化的FDSSC模型的参数，C是要分类的类别数。
+- （10）损失函数进行了softmax回归，由于HSI分类需要多个分类判别，我们使用损失函数进行了softmax回归
+- （11）FDSSC 框架目标函数
+#### 2.4.2. Fast Dense Spectral–Spatial Convolution Network for Classification of Labeled Pixels ####
+- Figure 6.高光谱图像快速密集谱空间卷积（FDSSC）网络对输入为9×9×L的标记像素进行分类。L是HSI的带数。C是要分类的类别数
+- Figure 7 FDSSC Framework
