@@ -24,7 +24,8 @@
 - Fig. 4: Group Convolution  为了减少参数的数目和计算量，LiteDenseNet使用了群卷积来代替常规卷积。 正常卷积层的信道大小与输入端相同，而群卷积将原始卷积核和输入端按信道维数分成3组。将输入信号分成h×w×l和通道cF/3三组。三组分别与cF/3通道进行正常卷积。因此，通道尺寸由h×w×l×cF减小到h×w×l×（cF/3）。这样，群卷积在保持输入和输出大小的同时，显著地减少了参数数目和计算开销。
 # III. THE PROPOSED LITEDEPTHWISENET #
 ## A. Modified 3D Depthwise Convonlution ##
-- Fig. 5: Group convolution with 3 groups
-- Fig. 6: 3D depthwise convolution. Fig.
-- Fig. 7: Modified 3D depthwise convolution.
+- Fig. 5: Group convolution with 3 groups 群卷积永久性地切断了信道间的某些连接，从而在一定程度上降低了分类性能。
+- Fig. 6: 3D depthwise convolution. Fig. 深度可分离卷积代替群卷积，其中点态卷积可以连接所有信道。
+- Fig. 7: Modified 3D depthwise convolution.由于HSIs训练样本数量有限，往往会对非线性能力较强的模型产生过拟合。因此，我们提出了一种改进的三维深度卷积用于HSI分类。主要调整是去除了原三维深卷积网络的中间激活层和归一化层，增强了模型的线性度，减少了过拟合现象。同时，大大减少了参数的数目和计算量。
+## 
 ## 
