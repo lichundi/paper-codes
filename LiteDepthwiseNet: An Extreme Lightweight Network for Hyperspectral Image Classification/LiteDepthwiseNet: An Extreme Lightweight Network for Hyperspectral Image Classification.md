@@ -43,3 +43,13 @@
 - TABLE IV：UP数据集 0.5%的UP数据进行训练
 - TABLE V: PC数据集 0.1%的PC数据用于训练
 ### B. Classification Maps and Categorized Results ###
+- TABLE VI  Fig. 11 IP
+- Table VII  Fig. 12 UP
+- Table VIII Fig. 13 PC 
+### Investigation of the Effects of Different Loss Functions ###
+- Table IX 三个数据集上不同损失函数下所提出算法的实验结果
+### D. Investigation of the γ of Focal Loss ###
+- Fig. 14: The OA, AA, and Kappa of LiteDepthwiseNet with different values of γ on the IP dataset.
+- Fig. 15: The OA, AA, and Kappa of LiteDepthwiseNet with different values of γ on the UP dataset.
+- Fig. 16: The OA, AA, and Kappa of LiteDepthwiseNet with different values of γ on the PC dataset.
+- γ值对AA的影响尤为显著，因为AA对小样本类别（通常是难分类样本）的准确性特别敏感，调整γ可以显著提高对难分类样本的关注度。
