@@ -18,4 +18,13 @@
 - （1）标准交叉熵损失函数 p表示类别中样本的预测概率，y表示样本是否正确分类，y是一个等于0或1的指示变量。可以观察到，当y为1时，p越接近1，损失越小；如果y为0，p越接近0，则损失越小，这符合优化的方向。
 - （2）我们引入分段函数F，简化表达式
 - （3）交叉熵损失函数另一种形式
-- （4）
+- （4）下平衡CEL（BCEL），为了处理类别不平衡的数据，一个在标准交叉熵损失函数中加入系数α∈[0，1]，以平衡不同类别样本的权重
+## C. LiteDenseNet ##
+- Fig. 3 The 3D two-way dense layer 在对输入数据进行1×1×1的卷积变换后，顶层采用两层3×3×3的卷积来捕获全局特征，得到尺寸为（9×9×97，12）的输出；底层采用3×3×3的卷积核捕捉局部特征，得到尺寸为（9×9×97，12）的输出。对双向密集层的输出进行级联运算，生成尺寸为（9×9×97，48）的三维立方体。
+- Fig. 4: Group Convolution  为了减少参数的数目和计算量，LiteDenseNet使用了群卷积来代替常规卷积。 正常卷积层的信道大小与输入端相同，而群卷积将原始卷积核和输入端按信道维数分成3组。将输入信号分成h×w×l和通道cF/3三组。三组分别与cF/3通道进行正常卷积。因此，通道尺寸由h×w×l×cF减小到h×w×l×（cF/3）。这样，群卷积在保持输入和输出大小的同时，显著地减少了参数数目和计算开销。
+# III. THE PROPOSED LITEDEPTHWISENET #
+## A. Modified 3D Depthwise Convonlution ##
+- Fig. 5: Group convolution with 3 groups
+- Fig. 6: 3D depthwise convolution. Fig.
+- Fig. 7: Modified 3D depthwise convolution.
+## 
