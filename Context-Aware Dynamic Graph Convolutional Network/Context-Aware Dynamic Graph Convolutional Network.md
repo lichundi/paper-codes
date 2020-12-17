@@ -48,4 +48,15 @@
 - 三种基于GCN的方法，即GCN[18]、光谱空间GCN（S2GCN）[26]和MDGCN[20]，以及一种基于CNN的方法，如CNN像素对特征（CNN PPFs）[27]。同时，我们还将所提出的CAD-GCN与两种传统的HSI分类方法，即多波段压缩纹理单元（MBCTU）[15]和多特征学习（MFL）[29]进行了比较。
 ### C. Classification Results
 - Table V,Fig. 7,the Indian Pines data set 
-- Table VI,Fig. 8 ,Results on the University ofPavia Data Set
+- Table VI,Fig. 8 ,Results on the University of Pavia Data Set
+- Table VII,Fig. 9 ,Results on the Salinas Data Set
+- Table VIII,Fig. 10,Results on the Houston University Data Set
+### D. Impact of the Number of Labeled Examples
+- Fig. 11 在每个类的不同标记实例数下，各种方法的总体精度。
+### E. Impact of Hyperparameters 
+- Fig. 12 η and T 大学习率η通常这会导致性能不稳定，而四个数据集的η都很小，可以获得较好的结果。适当的迭代次数T对于获得满意的性能至关重要。在Pavia大学数据集中，OA通常随着T的增加而提高。然而，当T=500时，结果最好。
+- Fig. 13 β and u.  由于采用较大的阈值进行边缘滤波可以去除有用的信息，所以在每个数据集上取一个相对较小的β值通常可以达到最佳效果。对于隐藏单元数u，虽然增加u值可以提高网络的表示能力，但过拟合的风险也会增大。因此，我们应该谨慎地为每个数据集分别选择一个合理的u。
+### F. Ablation Study  消融实验
+- 表IX-XII展示了上述数据集的比较结果。所提出的CAD-GCN包含三个改进上下文关系的关键部分，即图投影框架、节点相似性动态细化和边缘滤波。采用“CAD-GCN-v1”、“CAD-GCN-v2”和“CAD-GCN-v3”来表示简化模型，分别去除了节点相似性的动态细化、边缘滤波器和图形投影框架。
+### G. Running Time
+- 在表XIII中，我们发现我们提出的CAD-GCN在印度松树数据集上显示出与GCN相当的效率，并且在大规模数据集（即帕维亚大学、萨利纳斯和休斯顿大学数据集）中显示出显著高于其他方法的效率，这在很大程度上是由于使用了图投影运算。
